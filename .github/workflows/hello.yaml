@@ -3,14 +3,14 @@ on: push
 
 jobs:
   if-commit-message-contains-action:
-    name: If
+    name: If1
     runs-on: ubuntu-latest
     steps:
       - name: echo if commit message contains action
         if: contains(github.event.commits.message, 'action')
         run: echo "commit message contains action"
   if-commit-message-contains-test:
-    name: If
+    name: If2
     runs-on: ubuntu-latest
     steps:
       - name: echo if commit message contains test
