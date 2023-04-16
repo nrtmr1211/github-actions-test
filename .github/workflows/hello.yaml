@@ -1,27 +1,14 @@
-name: Flow Control
+name: Container
 on: push
 
 jobs:
   job1:
-    name: Greeting 1
+    name: On Node
     runs-on: ubuntu-latest
+    container:
+      image: 18.16.0-bullseye-slim
     steps:
-      - run: echo "Hello, World 1"
-  job2:
-    name: Greeting 2
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello, World 2"
-  job3:
-    name: Greeting 3
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello, World 3"
-  job4:
-    name: Greeting 4
-    needs: [job2, job3]
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hello, World 4"
+      - name: Log node version
+        run: |
+          node -v #nodeバージョンの確認
+          cat /etc/os-release #Linuxバージョンの確認
