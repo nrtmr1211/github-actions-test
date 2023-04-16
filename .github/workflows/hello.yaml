@@ -11,4 +11,4 @@ jobs:
       - name: dump readme
         run: cat README.md
 
-      - uses: nrtmr1211/github-actions-test@b689465
+      - uses: nrtmr1211/github-actions-test@b6894655a9571815d3d496c8eb7542de9f0eefc5
