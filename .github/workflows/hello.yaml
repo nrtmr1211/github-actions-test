@@ -11,4 +11,4 @@ jobs:
       - name: dump readme
         run: cat README.md
 
-      - uses: ./.github/actions/hello
+      - uses: ./.github/actions/hello@726f27d
