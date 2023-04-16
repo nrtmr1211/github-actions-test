@@ -8,4 +8,4 @@ jobs:
     container:
       image: node
     steps:
-      - run: node -v'
+      - run: node -v
