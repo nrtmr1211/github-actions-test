@@ -6,7 +6,7 @@ jobs:
     name: On Node
     runs-on: ubuntu-latest
     container:
-      image: node:12.14.1-alpine3.10
+      image: docker://node:12.14.1-alpine3.10
     steps:
       -
         name: Login to Docker Hub
