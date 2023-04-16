@@ -22,6 +22,6 @@ jobs:
           args: 'Hello World' #echoコマンドの引数
       -
         name: Log node version
-        with:
-          entrypoint: '/usr/local/bin/node' #コンテナ起動時にnodeコマンドを実行
-          args: -v #nodeコマンドの引数(バージョン確認)
+        run: |
+          node -v #nodeバージョンの確認
+          cat /etc/os-release #Linuxバージョンの確認
