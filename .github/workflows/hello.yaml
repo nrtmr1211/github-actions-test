@@ -1,12 +1,14 @@
-name: GitHub Context
-on: push
+name: If
+on: pull_request
 
 jobs:
-  github-context:
-    name: GitHub Context
+  if-pull-request-is-opened:
+    name: If
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "${GITHUB_CONTEXT}"
+      - name: echo if commit message contains action
+        if: contains(github.event.commits.message, 'action')
+        run: echo "commit message contains action"
+      - name: echo if commit message contains test
+        if: contains(github.event.commits.message, 'test')
+        run: echo "commit message contains test"
