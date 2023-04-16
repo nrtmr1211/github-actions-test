@@ -2,13 +2,17 @@ name: If
 on: push
 
 jobs:
-  if-pull-request-is-opened:
+  if-commit-message-contains-action:
     name: If
     runs-on: ubuntu-latest
     steps:
       - name: echo if commit message contains action
         if: contains(github.event.commits.message, 'action')
         run: echo "commit message contains action"
+  if-commit-message-contains-test:
+    name: If
+    runs-on: ubuntu-latest
+    steps:
       - name: echo if commit message contains test
         if: contains(github.event.commits.message, 'test')
         run: echo "commit message contains test"
