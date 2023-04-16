@@ -1,5 +1,5 @@
 name: If
-on: pull_request
+on: push
 
 jobs:
   if-pull-request-is-opened:
