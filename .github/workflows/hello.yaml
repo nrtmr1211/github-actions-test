@@ -10,6 +10,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "${GITHUB_CONTEXT}"
+      - name: Dump Commit Message
+        run: echo github.event.commits.message
       - name: echo if commit message contains action
         if: contains(github.event.commits.message, 'action')
         run: echo "commit message contains action"
@@ -21,6 +23,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "${GITHUB_CONTEXT}"
+      - name: Dump Commit Message
+        run: echo github.event.commits.message
       - name: echo if commit message contains test
         if: contains(github.event.commits.message, 'test')
         run: echo "commit message contains test"
