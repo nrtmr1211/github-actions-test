@@ -1,29 +1,10 @@
-name: If
+name: Checkout
 on: push
 
 jobs:
-  if-commit-message-contains-action:
-    name: If1
+  build:
+    name: Greeting
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "${GITHUB_CONTEXT}"
-      - name: echo if commit message contains action
-        if: contains(github.event.head_commit.message, 'action')
-        run: echo "commit message contains action"
-  if-commit-message-contains-test:
-    name: If2
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo if commit message contains test
-        if: contains(github.event.head_commit.message, 'test')
-        run: echo "commit message contains test"
-  if-event-name-push:
-    name: If3
-    runs-on: ubuntu-latest
-    steps:
-      - name: echo if event name push
-        if: github.event_name == 'push'
-        run: echo "event name push"
+      - uses: actions/checkout@v3
+      - run: cat README.md
