@@ -1,17 +1,10 @@
-name: Node.js Matrix Build
+name: Checkout
 on: push
 
 jobs:
   build:
-    name: Node.js ${{ matrix.os }} ${{ matrix.node }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: [6, 8, 10]
+    name: Greeting
+    runs-on: [ubuntu-latest, windows-latest]
     steps:
-      - name: Set Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - run: node -v
+      - uses: actions/checkout@v1
+      - run: cat README.md
