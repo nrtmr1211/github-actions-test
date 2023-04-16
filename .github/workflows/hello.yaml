@@ -5,6 +5,8 @@ jobs:
   job1:
     name: On Node
     runs-on: ubuntu-latest
+    container:
+      image: node:10.18.0-jessie
     steps:
       -
         name: Login to Docker Hub
@@ -20,7 +22,6 @@ jobs:
           args: 'Hello World' #echoコマンドの引数
       -
         name: Log node version
-        uses: docker://node:12.14.1-alpine3.10 
         with:
           entrypoint: '/usr/local/bin/node' #コンテナ起動時にnodeコマンドを実行
           args: -v #nodeコマンドの引数(バージョン確認)
