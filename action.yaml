@@ -1,7 +1,0 @@
-name: "Hello World"
-runs:
-  using: "composite"
-  steps:
-    - name: Greeting
-      run: echo 'hello world 2'
-      shell: sh
