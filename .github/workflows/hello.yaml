@@ -10,8 +10,6 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "${GITHUB_CONTEXT}"
-      - name: Dump Commit Message
-        run: echo github.event.commits.message
       - name: echo if commit message contains action
         if: contains(github.event.commits.message, 'action')
         run: echo "commit message contains action"
@@ -19,12 +17,13 @@ jobs:
     name: If2
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub Context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "${GITHUB_CONTEXT}"
-      - name: Dump Commit Message
-        run: echo github.event.commits.message
       - name: echo if commit message contains test
         if: contains(github.event.commits.message, 'test')
         run: echo "commit message contains test"
+  if-event-name-push:
+    name: If3
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo if event name push
+        if: github.event_name == 'push'
+        run: echo "event name push"
