@@ -1,11 +1,12 @@
-name: Hello, World!
+name: GitHub Context
 on: push
 
 jobs:
-  build:
-    name: Greeting
+  github-context:
+    name: GitHub Context
     runs-on: ubuntu-latest
-    container:
-      image: node:18.16.0-bullseye-slim
     steps:
-      - run: node -v
+      - name: Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
