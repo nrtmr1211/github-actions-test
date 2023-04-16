@@ -4,3 +4,4 @@ runs:
   steps:
     - name: Greeting
       run: echo 'hello world'
+      shell: sh
